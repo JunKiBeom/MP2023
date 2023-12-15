@@ -11,8 +11,8 @@
 
     <CheckBox
         android:id="@+id/item_checked"
-        android:layout_width="64dp"
-        android:layout_height="21dp"
+        android:layout_width="40dp"
+        android:layout_height="22dp"
         android:layout_weight="1"
         tools:ignore="MissingConstraints" />
 
@@ -24,8 +24,8 @@
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/item_checked"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="2dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/item_time"
