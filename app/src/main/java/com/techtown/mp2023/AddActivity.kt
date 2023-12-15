@@ -35,14 +35,13 @@ class AddActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_add_save -> {
                 val input = findViewById<EditText>(R.id.input_todo) // input_todo의 ID를 사용하여 뷰를 찾음
-                if (input.text.toString() != "") {
-                    val todo = Todo(input.text.toString())
-                    viewModel.insert(todo)
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-//                    setList()
+                val todo = Todo(input.text.toString())
+                viewModel.insert(todo)
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
                 input.setText("")
-                }
                 finish()
                 true
             }
