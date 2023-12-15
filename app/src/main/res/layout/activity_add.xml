@@ -15,10 +15,15 @@
         android:textColor="@android:color/darker_gray"/>
 
     <EditText
-        android:id="@+id/add_editView"
+        android:id="@+id/input_todo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"/>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

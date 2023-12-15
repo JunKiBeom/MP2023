@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,17 +8,32 @@
     android:orientation="horizontal"
     android:padding="16dp"
     android:layout_margin="8dp">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/todo"/>
+
+    <CheckBox
+        android:id="@+id/item_checked"
+        android:layout_width="64dp"
+        android:layout_height="21dp"
+        android:layout_weight="1"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/item_data"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="308dp"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:layout_weight="1"
         android:textSize="16dp"
-        android:layout_marginLeft="24dp"
-        />
-</LinearLayout>
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_checked"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <TextView
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
