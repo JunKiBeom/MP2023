@@ -7,11 +7,16 @@ import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
 import com.techtown.mp2023.databinding.ActivityMainBinding
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var adapter: MyAdapter
     lateinit var viewModel : TodoViewModel
     lateinit var todoList: MutableLiveData<MutableList<Todo>>
+    lateinit var toolbar: Toolbar
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +56,22 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
+
+        binding.mainFabCal.setOnClickListener {
+            val intent = Intent(this, CalActivity::class.java)
+            startActivity(intent)
+        }
         setList()
+
+
+//        toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true); // 왼쪽 상단 버튼 만들기
+//        getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24); //왼쪽 상단 버튼 아이콘 지정
+//
+//        drawerLayout = findViewById(R.id.drawer_layout);
+//        navigationView = findViewById(R.id.navigation_view);
 
     }
 
@@ -129,8 +152,32 @@ class MainActivity : AppCompatActivity() {
                     }
                     .show()
             }
+//            android.R.id.home -> {
+//                drawerLayout.openDrawer(GravityCompat.START)
+//                return true
+//            }
         }
         setList()
         return false
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            android.R.id.home -> {
+//                drawerLayout.openDrawer(GravityCompat.START)
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+
 }

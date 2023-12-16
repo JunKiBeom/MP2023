@@ -63,4 +63,8 @@ dependencies {
 
     // Test helpers
     testImplementation("androidx.room:room-testing:$room_version")
+
+    implementation("androidx.drawerlayout:drawerlayout:1.2.0")
+    implementation ("com.google.android.material:material:1.10.0")
+
 }
